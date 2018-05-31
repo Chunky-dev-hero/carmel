@@ -7,12 +7,7 @@
   "sections": {
     "start": {
       "stack": [
-        "intro",
-        "roadmap",
-        "whitepaper",
-        "challenges",
-        "tokens",
-        "auth"
+        "intro"
       ]
     },
     "dashboard": {
@@ -24,14 +19,18 @@
       ]
     }
   },
-  "transitions": ["replace://start"],
+  "transitions": [
+    "replace://start"
+  ],
   "provisioning": {
     "rest": {
       "url": "https://api.carmel.io"
     }
   },
   "build": {
-    "platforms": ["darwin/x64"]
+    "platforms": [
+      "darwin/x64"
+    ]
   },
   "theme": {
     "logoImage": "carmel-logo-white.png",

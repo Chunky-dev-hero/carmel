@@ -1,5 +1,0 @@
-export { default as Checkout } from './checkout'
-export { default as Footer } from './footer'
-export { default as ClaimStart } from './claimStart'
-export { default as ClaimContinue } from './claimContinue'
-export { default as ClaimValidate } from './claimValidate'
