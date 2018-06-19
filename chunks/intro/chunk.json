@@ -3,15 +3,10 @@
   "routes": {
     "main": {
       "title": "Welcome",
-      "desktopTitle": "Start",
       "icon": "home",
-      "skipExtendedMenuOnDesktop": true,
       "path": "/",
-      "events": {},
       "cover": {
         "image": "hero.jpg",
-        "backgroundColor": "#ffffff",
-        "align": "bottom",
         "opacity": 0.5,
         "navigation": true,
         "title": "More than Learning",
@@ -47,24 +42,6 @@
         }
       }
     },
-    "welcome": {
-      "title": "Welcome",
-      "icon": "home",
-      "path": "/welcome",
-      "events": {
-        "cover": "local://me"
-      },
-      "cover": {
-        "image": "start.jpg",
-        "backgroundColor": "#ffffff",
-        "align": "bottom",
-        "opacity": 0.5,
-        "navigation": true,
-        "title": "It has begun.",
-        "subtitle": "Ready to get in the zone?",
-        "type": "default",
-        "primaryActionTitle": "Let's Do This"
-      }
-    }
+    "about": {}
   }
 }

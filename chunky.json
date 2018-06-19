@@ -13,10 +13,7 @@
     "dashboard": {
       "private": true,
       "layout": "sidebar",
-      "stack": [
-        "auth",
-        "tokens"
-      ]
+      "stack": []
     }
   },
   "transitions": [
@@ -55,10 +52,6 @@
   "info": {
     "copyright": "© 2018",
     "title": "Carmel",
-    "watermark": "Created with Chunky.",
-    "analytics": {
-      "type": "google",
-      "key": "UA-99031266-1"
-    }
+    "watermark": "Created with Chunky."
   }
 }
