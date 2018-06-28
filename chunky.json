@@ -9,11 +9,6 @@
       "stack": [
         "intro"
       ]
-    },
-    "dashboard": {
-      "private": true,
-      "layout": "sidebar",
-      "stack": []
     }
   },
   "transitions": [
@@ -51,7 +46,7 @@
   },
   "info": {
     "copyright": "© 2018",
-    "title": "Carmel",
+    "title": "Template",
     "watermark": "Created with Chunky."
   }
 }
