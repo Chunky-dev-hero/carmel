@@ -35,8 +35,8 @@
     "platforms": ["darwin/x64"]
   },
   "theme": {
-    "logoImage": "carmel-logo-white.png",
-    "logoLightImage": "carmel-logo.png",
+    "logoImage": "carmel-logo-white1.png",
+    "logoLightImage": "carmel-logo1.png",
     "headerColor": "#FF5722",
     "textColor": "#546E7A",
     "linkColor": "#0288D1",
