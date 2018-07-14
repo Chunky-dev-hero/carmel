@@ -5,7 +5,7 @@
       "title": "Challenges",
       "icon": "home",
       "path": "/challenges",
-      "index": "https://raw.githubusercontent.com/fluidtrends/carmel/content/challenges/index.json",
+      "index": "https://raw.githubusercontent.com/fluidtrends/carmel/content-194/challenges/index.json",
       "cover": {
         "backgroundColor": "#00838F",
         "opacity": 0.6,
@@ -19,7 +19,7 @@
       "icon": "home",
       "path": "/challenges",
       "skipRootVariant": true,
-      "variants": "https://raw.githubusercontent.com/fluidtrends/carmel/content/challenges/index.json",
+      "variants": "https://raw.githubusercontent.com/fluidtrends/carmel/content-194/challenges/index.json",
       "cover": {
         "backgroundColor": "#00838F",
         "navigation": true,
