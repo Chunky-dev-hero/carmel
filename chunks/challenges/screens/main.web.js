@@ -72,4 +72,10 @@ export default class MainChallengesScreen extends Screen {
   components() {
     return [this.renderContent()]
   }
+
+  // TODO: Detect when a challenge is pressed and then call this (#196)
+  challengeSelected(challenge) {
+    // TODO: Go to the challenge page
+    console.log(challenge)
+  }
 }
