@@ -5,18 +5,22 @@ import path from 'path'
 import os from 'os'
 import NewWorkspaceForm from '../components/newWorkspace'
 import { Typography } from 'rmwc/Typography'
-import { Card, CardActions, CardActionButtons } from 'rmwc/Card'
+import { Card, CardActions, CardMedia, CardActionButtons } from 'rmwc/Card'
 import { Button, ButtonIcon } from 'rmwc/Button'
+import { LinearProgress } from 'rmwc/LinearProgress'
 import { Icon } from 'antd'
+import { Data } from 'react-chunky'
 import Shell from '../components/shell'
+import chokidar from 'chokidar'
+import browserSync from 'browser-sync'
 
 export default class WorkspaceScreen extends Screen {
   constructor (props) {
     super(props)
     this._shell = new Shell()
-    this.state = { ...this.state, loadingWorkspace: true, create: false }
+    this.state = { ...this.state, loadingWorkspace: true, create: false, workspace: { id: '__carmel_default' } }
     this._onCancel = this.onCancel.bind(this)
-    this._onPause = this.onPause.bind(this)
+    this._onStart = this.onStart.bind(this)
     this._onSwitch = this.onSwitch.bind(this)
     this._onCreate = this.onCreate.bind(this)
     this._homeDir = this._calculateHomeDir()
@@ -49,15 +53,16 @@ export default class WorkspaceScreen extends Screen {
   }
 
   get workspaceContext () {
-    try {
-      return JSON.parse(fs.readFileSync(path.resolve(this.homeDir, '.carmel', 'context', 'index.json'), 'utf8'))
-    } catch (e) {
-      console.log(e)
-    }
+    return Data.Cache.retrieveCachedItem('_carmel_context')
   }
 
-  onPause () {
+  onStart () {
+    if (this.state.started) {
+      this.stopProduct()
+      return
+    }
 
+    this.startProduct(this.state.workspace)
   }
 
   onSwitch () {
@@ -68,31 +73,104 @@ export default class WorkspaceScreen extends Screen {
   }
 
   loadProduct (workspace) {
-    try {
-      var product = path.resolve(this.homeDir, '.carmel', 'products', workspace.id, 'chunky.json')
-      product = JSON.parse(fs.readFileSync(product, 'utf8'))
-      this.setState({ workspace, product, loadingWorkspace: false, create: false })
-    } catch (e) {
-      console.log(e)
+    return new Promise((resolve, reject) => {
+      try {
+        var product = path.resolve(this.homeDir, '.carmel', 'products', workspace.id, 'chunky.json')
+        product = JSON.parse(fs.readFileSync(product, 'utf8'))
+        this.setState({ workspace, product, timestamp: `${Date.now()}`, loadingWorkspace: false, create: false })
+      } catch (e) {
+        console.log(e)
+      }
+    })
+  }
+
+  refreshProduct () {
+    const root = this.rootProductDir
+  }
+
+  get rootProductDir () {
+    if (!this.state.workspace) {
+      return
     }
+
+    return path.resolve(this.homeDir, '.carmel', 'products', this.state.workspace.id)
+  }
+
+  get productAssetsDir () {
+    if (!this.state.workspace) {
+      return
+    }
+
+    return path.resolve(this.rootProductDir, 'assets')
+  }
+
+  get productBrowser () {
+    return this._productBrowser
+  }
+
+  productAsset (name) {
+    if (!this.state.workspace) {
+      return
+    }
+
+    return path.resolve(this.productAssetsDir, name)
+  }
+
+  startBrowser () {
+    this._productBrowser = browserSync.create(`carmel-${this.state.workspace.id}`)
+    this.productBrowser.init({ server: false, proxy: 'http://localhost:18082' })
+  }
+
+  stopBrowser () {
+    const dir = path.resolve(this.homeDir, '.carmel', 'context')
+    this.productBrowser.exit()
+    this.productBrowser.init({
+      server: {
+        baseDir: dir,
+        index: 'closed.html'
+      }
+    })
+  }
+
+  stopProduct () {
+    this.setState({ stopping: true })
+    this.stopBrowser()
+    setTimeout(() => {
+      this.shell.exec('stopProduct', { type: 'web', id: this.state.workspace.id }, ({ log }) => {
+        this.setState({ log })
+      })
+      .then((data) => {
+        this.setState({ started: false, stopping: false })
+      })
+      .catch(error => {
+        this.setState({ error })
+      })
+    }, 500)
   }
 
   startProduct (workspace) {
+    this.setState({ starting: true })
     setTimeout(() => {
       this.shell.exec('startProduct', { type: 'web', id: workspace.id }, ({ log }) => {
-        console.log(log)
+        this.setState({ log })
       })
-      .then((data) => console.log(data))
-      .catch(error => console.log(error))
+      .then((data) => {
+        this.setState({ started: true, starting: false })
+        this.startBrowser()
+      })
+      .catch(error => {
+        this.setState({ error })
+      })
     }, 500)
   }
 
   onCreate (workspace) {
     try {
       const context = Object.assign({}, this.workspaceContext, { workspace })
-      fs.writeFileSync(path.resolve(this.homeDir, '.carmel', 'context', 'index.json'), JSON.stringify(context, null, 2), 'utf8')
-      this.loadProduct(workspace)
-      this.startProduct(workspace)
+      Data.Cache.cacheItem('_carmel_context', context).then(() => {
+        this.loadProduct(workspace)
+        this.startProduct(workspace)
+      })
     } catch (e) {
       console.log(e)
     }
@@ -100,26 +178,65 @@ export default class WorkspaceScreen extends Screen {
 
   loadWorkspace () {
     this.setState({ loadingWorkspace: true, create: false })
+    this.workspaceContext
+        .then((context) => {
+          if (!context || !context.workspace) {
+            this.setState({ loadingWorkspace: false, create: true })
+            return
+          }
 
-    const context = this.workspaceContext
-    if (!context || !context.workspace) {
-      this.setState({ loadingWorkspace: false, create: true })
-      return
-    }
-
-    this.loadProduct(context.workspace)
-    this.startProduct(context.workspace)
+          this.loadProduct(context.workspace)
+          this.startProduct(context.workspace)
+        })
+        .catch(() => {
+          this.setState({ loadingWorkspace: false, create: true })
+        })
   }
 
   renderMenu () {
+    return <div />
+    // return [<Button
+    //   raised
+    //   key='add'
+    //   onClick={this._onSwitch}
+    //   >
+    //   <ButtonIcon use='repeat' />
+    //     Switch Workspace
+    //   </Button>]
+  }
+
+  renderProductCover () {
+    const cover = this.productAsset('hero.jpg')
+
+    if (!cover) {
+      return <div />
+    }
+
+    return <CardMedia
+      sixteenByNine
+      style={{
+        backgroundImage: `url(${cover})`
+      }} />
+  }
+
+  renderActions () {
+    if (this.state.stopping || this.state.starting) {
+      return <div style={{ padding: '4px', textAlign: 'center', marginBottom: '10px' }}>
+        <LinearProgress determinate={false} width='300px' />
+        <Typography use='caption' tag='h2'>
+          { this.state.stopping ? 'Stopping ...' : 'Starting ...' }
+        </Typography>
+      </div>
+    }
+
     return [<Button
+      key='start'
       raised
-      key='add'
-      onClick={this._onSwitch}
-      >
-      <ButtonIcon use='repeat' />
-        Switch Workspace
-      </Button>]
+      style={{ backgroundColor: (this.state.started ? '#f44336' : '#4CAF50') }}
+      onClick={this._onStart}>
+      <ButtonIcon use={`${this.state.started ? 'pause' : 'play'}_circle_outline`} />
+      { this.state.started ? 'Stop' : 'Start' }
+    </Button>]
   }
 
   renderWorkspace (width, padding) {
@@ -141,15 +258,16 @@ export default class WorkspaceScreen extends Screen {
         justifyContent: 'flex-end',
         flexDirection: 'row',
         alignItems: 'flex-end',
-        padding: '20px',
+        padding: '0px',
         width: '100%',
-        marginBottom: '20px',
-        borderBottom: '1px #eeeeee solid'
+        marginBottom: '20px'
       }}>
         { this.renderMenu() }
       </div>
 
-      <Card style={{ width, margin: '10px', padding }}>
+      <Card style={{ width, margin: '0px', padding }}>
+        { this.renderProductCover() }
+
         <div style={{ padding: '4px', textAlign: 'center', marginBottom: '20px' }}>
           <Icon type='phonelink' style={{
             fontSize: '64px',
@@ -162,13 +280,7 @@ export default class WorkspaceScreen extends Screen {
 
         <CardActions style={{ justifyContent: 'center', margin: '20px' }}>
           <CardActionButtons>
-            <Button
-              raised
-              style={{ backgroundColor: '#f44336' }}
-              onClick={this._onPause}>
-              <ButtonIcon use='pause_circle_outline' />
-              Stop
-            </Button>
+            { this.renderActions() }
           </CardActionButtons>
         </CardActions>
       </Card>
@@ -188,7 +300,7 @@ export default class WorkspaceScreen extends Screen {
     }
 
     const width = '400px'
-    const padding = this.props.isSmallScreen ? '2px' : '30px'
+    const padding = this.props.isSmallScreen ? '2px' : '5px'
     return (
       <div
         style={{
