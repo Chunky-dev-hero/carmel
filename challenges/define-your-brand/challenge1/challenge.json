@@ -2,5 +2,11 @@
   "id": 2,
   "title": "Challenge 1",
   "author": "Robert P. & Chris P.",
-  "level": "Beginner"
+  "level": "Beginner",
+  "tasksNumber": 5,
+  "task1ErrorMessage": "chunky.json logo should be different",
+  "task2ErrorMessage": "navigation color should be changed",
+  "task3ErrorMessage": "change the title to a new one",
+  "task4ErrorMessage": "the image should differ from the initial one",
+  "task5ErrorMessage": "subtitle should also differ"
 }
