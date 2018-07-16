@@ -1,0 +1,29 @@
+{
+  "name": "studio",
+  "routes": {
+    "workspace": {
+      "title": "Workspace",
+      "icon": "appstore",
+      "path": "/workspace",
+      "private": true,
+      "cover": {
+        "backgroundColor": "#00838F",
+        "navigation": true,
+        "type": "menu"
+      }
+    },
+    "main": {
+      "title": "Studio",
+      "icon": "home",
+      "path": "/studio",
+      "cover": {
+        "backgroundColor": "#00838F",
+        "opacity": 0.6,
+        "navigation": true,
+        "image": "start.jpg",
+        "title": "Download the #CarmelStudio",
+        "type": "default"
+      }
+    }
+  }
+}

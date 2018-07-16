@@ -3,5 +3,8 @@ node_modules
 *.log
 .chunky.json
 build
-
-\.idea/
+.chunky
+.gitignore
+packer_boxes
+packer_cache
+package-lock.json
