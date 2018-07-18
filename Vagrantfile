@@ -3,9 +3,7 @@ Vagrant.configure("2") do |config|
   config.vm.define "carmel-hobbiton"
   config.ssh.username = "carmel"
   config.vm.synced_folder ".", "/vagrant", disabled: true
-  config.vm.synced_folder "bin", "/home/carmel/bin"
-  config.vm.synced_folder "products", "/home/carmel/products"
-  config.vm.synced_folder "context", "/home/carmel/context"
+  config.vm.synced_folder ".", "/home/carmel/carmel"
   config.vm.box_check_update = true
   config.vm.network "forwarded_port", guest: 8082, host: 18082, guest_ip: "0.0.0.0", host_ip: "127.0.0.1"
 
