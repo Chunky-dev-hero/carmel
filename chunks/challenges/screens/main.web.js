@@ -28,36 +28,28 @@ export default class MainChallengesScreen extends Screen {
   componentDidMount() {
     super.componentDidMount()
     this.importRemoteData(this.props.index).then(challenges => {
+      const newChallenges = challenges.map(challenge => {
+        return Object.assign({},challenge,{
+          actionTitle:"See more details",
+          action:{handler:`local://challenges/${challenge.path}`}
+        })
+      })
+      console.log(newChallenges)
       this.setState({
-        challenges,
+        challenges:newChallenges,
         loading: false
       })
     })
+    // const challenges = this.importData("challenges")
+    // this.setState({
+    //   challenges,
+    //   loading: false
+    // })
   }
 
   renderContent() {
     if (this.state.loading) {
-      const width = '100%'
-      return (
-        <div
-          style={{
-            display: 'flex',
-            flex: 1,
-            margin: '10px',
-            justifyContent: 'center',
-            flexDirection: 'column',
-            alignItems: 'center'
-          }}
-        >
-          <Card style={{ width, margin: '20px', padding: '0px' }}>
-            <Typography use="title" tag="h1">
-              Loading ... Just a sec.
-            </Typography>
-            <ListDivider />
-            <LinearProgress determinate={false} />
-          </Card>
-        </div>
-      )
+      return <Components.Loading message='Loading Your challenges ...' />
     }
 
     return (
@@ -71,11 +63,5 @@ export default class MainChallengesScreen extends Screen {
 
   components() {
     return [this.renderContent()]
-  }
-
-  // TODO: Detect when a challenge is pressed and then call this (#196)
-  challengeSelected(challenge) {
-    // TODO: Go to the challenge page
-    console.log(challenge)
   }
 }

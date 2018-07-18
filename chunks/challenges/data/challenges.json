@@ -1,0 +1,35 @@
+[
+  {
+    "name": "chunky",
+    "backgroundColor": "#ffffff",
+    "path": "chunky",
+    "title": "Meet Chunky",
+    "details": "Create Your First Chunky Product In Minutes",
+    "actionTitle": "See more details",
+    "action": {
+      "handler": "local://challenges/chunky"
+    },
+    "xp": "5",
+    "category": "Beginner",
+    "label": "Web",
+    "content": {
+      "text": "github://fluidtrends/carmel/content/challenge/chunky/README",
+      "textColor": "#37474F"
+    }
+  },
+  {
+    "name": "awsome",
+    "backgroundColor": "#ffffff",
+    "path": "awsome",
+    "title": "You're awsome",
+    "details": "Learn how to create and manage your AWS infrastructure with AWSome",
+    "actionTitle": "Coming soon",
+    "xp": "20",
+    "category": "Advanced",
+    "label": "DevOps",
+    "content": {
+      "text": "github://fluidtrends/carmel/content/challenge/awsome/README",
+      "textColor": "#37474F"
+    }
+  }
+]
