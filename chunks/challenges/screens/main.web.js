@@ -27,11 +27,16 @@ export default class MainChallengesScreen extends Screen {
 
   componentDidMount() {
     super.componentDidMount()
-    this.importRemoteData(this.props.index).then(challenges => {
-      this.setState({
-        challenges,
-        loading: false
-      })
+    // this.importRemoteData(this.props.index).then(challenges => {
+    //   this.setState({
+    //     challenges,
+    //     loading: false
+    //   })
+    // })
+    const challenges = this.importData("challenges")
+    this.setState({
+      challenges,
+      loading: false
     })
   }
 
