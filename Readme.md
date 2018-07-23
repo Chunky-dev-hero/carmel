@@ -1,7 +1,4 @@
 <p align="center">
-<p>
-<img src=.png" width="">
-
 
 <h1 align="center"> Working on Linux  (Ubuntu 16.04).</h1>
 
