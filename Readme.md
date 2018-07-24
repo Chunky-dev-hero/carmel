@@ -11,7 +11,7 @@ The easiest way to install for Debian/Ubuntu based distributions is to download 
 <a href="https://code.visualstudio.com/docs/setup/linux"> Visual Studio Code, official website.</a><break>
 
 <p> After you downloaded the .deb package from the beginning of the page, then right click on the desktop and open a terminal: 
-    <img src=1.png" width="">
+    <img src=1.png" width="125px">
     
 
 <p> Go to the Download directory.  Type cd Dow and hit the tab key to complete the directory name:
