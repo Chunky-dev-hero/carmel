@@ -2,44 +2,31 @@
   "name": "intro",
   "routes": {
     "main": {
-      "title": "Welcome",
+      "title": "Home",
       "icon": "home",
       "path": "/",
       "cover": {
-        "image": "hero.jpg",
+        "image": "shop.jpeg",
         "opacity": 0.5,
         "navigation": true,
-        "title": "More than Learning",
-        "subtitle": "Grow Your Tech Skills With Programming Challenges And Earn Experience Points",
+        "title": "My awesome shop",
+        "subtitle": "Buy my awesome stuff from this store that Chunky help me build",
         "type": "default",
-        "primaryActionTitle": "Start Your Learning Journey"
+        "primaryActionTitle": "See promotions"
       },
-      "components": {
-        "intro": {
-          "source": "summary",
-          "text": "local://intro",
-          "image": "carmel-logo.png",
-          "textColor": "#37474F"
+      "extendedMenu": [
+        {
+          "id": "cart",
+          "title": "Cart",
+          "path": "/cart"
         },
-        "pillars": {
-          "source": "benefits",
-          "benefits": [
-            {
-              "text": "local://education",
-              "image": "education.png"
-            },
-            {
-              "text": "local://model",
-              "image": "developers.png"
-            },
-            {
-              "text": "local://growth",
-              "image": "challenges.png"
-            }
-          ],
-          "textColor": "#37474F",
-          "backgroundColor": "#fcfefe"
+        {
+          "id": "profile",
+          "title": "Profile",
+          "path": "/profile"
         }
+      ],
+      "components": {
       }
     },
     "about": {}

@@ -1,3 +1,3 @@
-# Welcome to Carmel
+# Welcome to My store
 
-## The **Decentralized Open Source Tech Education Platform** that helps aspiring and seasoned Software Developers **grow their skill set** and **track their growth** through tokenized peer challenges.
+## Start looking for the items you want

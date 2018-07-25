@@ -7,7 +7,17 @@
   "sections": {
     "start": {
       "stack": [
-        "intro"
+        "intro",
+        "auth"
+      ]
+    },
+    "dashboard": {
+      "private": true,
+      "layout": "sidebar",
+      "stack": [
+        "studio",
+        "tokens",
+        "auth"
       ]
     }
   },
