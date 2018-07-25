@@ -19,11 +19,6 @@
         "id": "platform",
         "elements": [
           {
-            "id": "whitepaper",
-            "title": "Whitepaper",
-            "link": "local://whitepaper"
-          },
-          {
             "id": "code",
             "title": "Source Code",
             "link": "http://github.com/fluidtrends/carmel"

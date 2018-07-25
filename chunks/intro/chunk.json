@@ -30,11 +30,11 @@
             },
             {
               "text": "local://model",
-              "image": "model.png"
+              "image": "developers.png"
             },
             {
               "text": "local://growth",
-              "image": "growth.png"
+              "image": "challenges.png"
             }
           ],
           "textColor": "#37474F",
