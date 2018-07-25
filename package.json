@@ -17,7 +17,8 @@
     "push:web": "npm run package:web && npm run deploy:web && npm run reset:web",
     "push:nextweb": "npm run package:web && npm run robots:web && npm run deploy:nextweb",
     "push": "npm run push:web",
-    "validate": "./node_modules/.bin/cypress run -s cypress/integration/challenges/**/**/*"
+    "validate": "./node_modules/.bin/cypress run -s cypress/integration/challenges/**/**/*",
+    "task": "./node_modules/.bin/cypress run -s cypress/integration/challenges/$quest/challenge$challenge/task$task.test.js"
   },
   "repository": {
     "type": "git",
