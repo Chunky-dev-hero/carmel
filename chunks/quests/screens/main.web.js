@@ -12,32 +12,18 @@ export default class MainQuestsScreen extends Screen {
   componentDidMount () {
     super.componentDidMount()
 
-    // this.importRemoteData(this.props.variants).then(sections => {
-    //   const indexedSections = sections.map((s, i) => {
-    //     return Object.assign({}, s, { id: i })
-    //   })
-    //   this._sections = [].concat(indexedSections)
-    //
-    //   if (!this.sections || this.sections.length === 0) {
-    //     return
-    //   }
-    //
-    //   this.refreshSection()
-    // })
+    this.importRemoteData(this.props.variants).then(sections => {
+      const indexedSections = sections.map((s, i) => {
+        return Object.assign({}, s, { id: i })
+      })
+      this._sections = [].concat(indexedSections)
 
-    const sections = this.importData("quests")
-    const indexedSections = sections.map((s, i) => {
-      return Object.assign({}, s, { id: i })
+      if (!this.sections || this.sections.length === 0) {
+        return
+      }
+
+      this.refreshSection()
     })
-    this._sections = [].concat(indexedSections)
-
-    if (!this.sections || this.sections.length === 0) {
-      return
-    }
-
-    this.refreshSection()
-
-    //---
   }
 
   refreshSection () {
