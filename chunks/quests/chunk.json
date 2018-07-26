@@ -1,0 +1,24 @@
+{
+  "name": "quests",
+  "routes": {
+    "main": {
+      "title": "Quests",
+      "icon": "favorite",
+      "path": "/quests",
+      "events": {
+        "cover": "local://platform"
+      },
+      "cover": {
+        "backgroundColor": "#61AFE1",
+        "align": "bottom",
+        "opacity": 0.9,
+        "navigation": true,
+        "title": "Quests",
+        "type": "presentation",
+        "image": "https://raw.githubusercontent.com/fluidtrends/carmel/content/whitepaper/introduction/large.png",
+        "imageSmall": "https://raw.githubusercontent.com/fluidtrends/carmel/content/whitepaper/introduction/small.png"
+      },
+      "variants": "https://raw.githubusercontent.com/fluidtrends/carmel/content/quests/index.json"
+    }
+  }
+}
