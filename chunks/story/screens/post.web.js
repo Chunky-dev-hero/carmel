@@ -13,8 +13,9 @@ export default class PostScreen extends Screen {
   }
 
   components () {
+    const variant = this._variant || {}
     return [
-      <Components.Article {...this.variant.content} />
+      <Components.Article {...variant.content} />
     ]
   }
 }
