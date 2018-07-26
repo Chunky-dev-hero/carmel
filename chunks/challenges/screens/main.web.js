@@ -34,17 +34,11 @@ export default class MainChallengesScreen extends Screen {
           action:{handler:`local://challenges/${challenge.path}`}
         })
       })
-      console.log(newChallenges)
       this.setState({
         challenges:newChallenges,
         loading: false
       })
     })
-    // const challenges = this.importData("challenges")
-    // this.setState({
-    //   challenges,
-    //   loading: false
-    // })
   }
 
   renderContent() {

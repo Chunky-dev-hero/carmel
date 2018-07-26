@@ -13,9 +13,9 @@ export default class ChallengeScreen extends Screen {
   }
 
   components () {
-    console.log("blabal",this.variants)
+    const variant = this._variant || {}
     return [
-      <Components.Article {...this.variant.content} />
+      <Components.Article {...variant.content} />
     ]
   }
 }
