@@ -35,7 +35,7 @@ Open your browser (Google Chrome, Mozilla Firefox, Opera, etc) and in the addres
 <img src="../../img/Q5/Q5C1_gmail03.jpg" />
 </p>
 
-Enter your **First name** and **Last Name** and chose a **Username** and **Password**. Retype your password in the **Confirm password** field. Once done, click **NEXT** button. Make sure to carefully read the requirements for the username and password. Also, the username should be unique, otherwise you will be asked to chose a different username. For example, if I try to use chunkybuddy as username, I will get an error, asking me to chose a different username.
+Enter your **First name** and **Last Name** and chose a **Username** and **Password**. Retype your password in the **Confirm password** field. Once done, click **NEXT** button. Make sure to carefully read the requirements for the username and password. Also, the username should be unique, otherwise you will be asked to chose a different username. For example, if I try to use chunkyhero as username, I will get an error, asking me to chose a different username.
 
 <p align="center">
 <img src="../../img/Q5/Q5C1_gmail04.jpg" />
