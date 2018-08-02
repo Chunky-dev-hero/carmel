@@ -3,7 +3,7 @@
     "path": "hello-chunky",
     "menuTitle": "Hello Chunky",
     "title": "Hello Chunky",
-    "text": "https://github.com/fluidtrends/carmel/raw/content/quests/hello-chunky/README",
+    "text": "https://raw.githubusercontent.com/fluidtrends/carmel/content/quests/hello-chunky/README",
     "cover": {
       "title": "Extend Your Project",
       "image": "https://github.com/fluidtrends/carmel/raw/content/whitepaper/introduction/large.png",
@@ -14,7 +14,7 @@
     "path": "define-your-brand",
     "menuTitle": "Define Your Brand",
     "title": "Define Your Brand",
-    "text": "https://github.com/fluidtrends/carmel/raw/content/quests/define-your-brand/README",
+    "text": "https://raw.githubusercontent.com/fluidtrends/carmel/content/quests/define-your-brand/README",
     "cover": {
       "title": "Define Your Brand",
       "image": "https://github.com/fluidtrends/carmel/raw/content/whitepaper/introduction/large.png",
@@ -25,7 +25,7 @@
     "path": "extend-your-project",
     "menuTitle": "Extend Your Project",
     "title": "Extend Your Project",
-    "text": "https://github.com/fluidtrends/carmel/raw/content/quests/extend-your-project/README",
+    "text": "https://raw.githubusercontent.com/fluidtrends/carmel/content/quests/extend-your-project/README",
     "cover": {
       "title": "Extend Your Project",
       "image": "https://github.com/fluidtrends/carmel/raw/content/whitepaper/introduction/large.png",
@@ -36,7 +36,7 @@
     "path": "react",
     "menuTitle": "React",
     "title": "React",
-    "text": "https://github.com/fluidtrends/carmel/raw/content/quests/react/README",
+    "text": "https://raw.githubusercontent.com/fluidtrends/carmel/content/quests/react/README",
     "cover": {
       "title": "React",
       "image": "https://github.com/fluidtrends/carmel/raw/content/whitepaper/introduction/large.png",
