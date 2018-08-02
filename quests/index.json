@@ -4,7 +4,7 @@
     "menuTitle": "Hello Chunky",
     "title": "Hello Chunky",
     "text": "github://fluidtrends/carmel/content/quests/hello-chunky/README",
-    "content": "https://raw.githubusercontent.com/fluidtrends/carmel/content/quests/hello-chunky/README",
+    "content": "https://raw.githubusercontent.com/fluidtrends/carmel/content/quests/hello-chunky/index.json",
     "cover": {
       "title": "Extend Your Project",
       "image": "https://github.com/fluidtrends/carmel/raw/content/whitepaper/introduction/large.png",
@@ -16,7 +16,7 @@
     "menuTitle": "Define Your Brand",
     "title": "Define Your Brand",
     "text": "github://fluidtrends/carmel/content/quests/define-your-brand/README",
-    "content": "https://raw.githubusercontent.com/fluidtrends/carmel/content/quests/define-your-brand/README",
+    "content": "https://raw.githubusercontent.com/fluidtrends/carmel/content/quests/define-your-brand/index.json",
     "cover": {
       "title": "Define Your Brand",
       "image": "https://github.com/fluidtrends/carmel/raw/content/whitepaper/introduction/large.png",
@@ -28,7 +28,7 @@
     "menuTitle": "Extend Your Project",
     "title": "Extend Your Project",
     "text": "github://fluidtrends/carmel/content/quests/extend-your-project/README",
-    "content": "https://raw.githubusercontent.com/fluidtrends/carmel/content/quests/extend-your-project/README",
+    "content": "https://raw.githubusercontent.com/fluidtrends/carmel/content/quests/extend-your-project/index.json",
     "cover": {
       "title": "Extend Your Project",
       "image": "https://github.com/fluidtrends/carmel/raw/content/whitepaper/introduction/large.png",
@@ -40,7 +40,7 @@
     "menuTitle": "React",
     "title": "React",
     "text": "github://fluidtrends/carmel/content/quests/react/README",
-    "content": "https://raw.githubusercontent.com/fluidtrends/carmel/content/quests/react/README",
+    "content": "https://raw.githubusercontent.com/fluidtrends/carmel/content/quests/react/index.json",
     "cover": {
       "title": "React",
       "image": "https://github.com/fluidtrends/carmel/raw/content/whitepaper/introduction/large.png",
