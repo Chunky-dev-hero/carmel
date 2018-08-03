@@ -35,4 +35,23 @@ Chose a **username** (this needs to be unique), enter your email address and cho
   <img src ="../../img/Q5/Q5C2_github03.jpg" />
 </p>
 
-Congrats, you have a brand new email account, ready for you to use. Want to get the most of it? [Let's go!](../challenge3)
+The **Welcome to GitHub** window will show up. Click **Continue** button.
+
+<p align="center">
+  <img src ="../../img/Q5/Q5C2_github04.jpg" />
+</p>
+
+Now you can tailor your experience or skip this step. If you decide to customize your experience, select the options that applies to you, and click **Submit** button. 
+
+<p align="center">
+  <img src ="../../img/Q5/Q5C2_github05.jpg" />
+</p>
+
+Last step is to confirm your account. You should get a confirmation email in your gmail mailbox. Go to your inbox, open up the email with the subject **GitHub - Please verify your email address.** Click **Verify email address** to confirm your account. 
+
+<p align="center">
+  <img src ="../../img/Q5/Q5C2_github06.jpg" />
+</p>
+
+Congrats, you just created your GitHub account!
+Are you ready to level up? [Let's go!](../challenge3)
